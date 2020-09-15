@@ -34,11 +34,11 @@
     "ios",
     "android"
   ],
-  "repository": "http://code.aihuishou.com/HeXiangyuan/react-native-assets-loader",
-  "author": "何祥源 <xiangyuan.he@aihuishou.com> (http://code.aihuishou.com/HeXiangyuan/react-native-assets-loader)",
+  "repository": "https://github.com/hexiangyuan/react-native-assets-loader",
+  "author": "何祥源 <xiangyuan.he@aihuishou.com> (https://github.com/hexiangyuan/react-native-assets-loader)",
   "license": "MIT",
   "bugs": {
-    "url": "http://code.aihuishou.com/HeXiangyuan/react-native-assets-loader/issues"
+    "url": "https://github.com/hexiangyuan/react-native-assets-loader/issues"
   },
   "homepage": "http://code.aihuishou.com/HeXiangyuan/react-native-assets-loader#readme",
   "devDependencies": {
