@@ -1,0 +1,30 @@
+{
+  "name": "react-native-assets-loader",
+  "version": "0.2.2",
+  "description": "react-native-assets-loader",
+  "main": "src/index",
+  "scripts": {},
+  "keywords": [
+    "react-native"
+  ],
+  "repository": "https://github.com/hexiangyuan/react-native-assets-loader",
+  "author": "何祥源 <xiangyuan.he@aihuishou.com> (https://github.com/hexiangyuan/react-native-assets-loader)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hexiangyuan/react-native-assets-loader/issues"
+  },
+  "homepage": "https://github.com/hexiangyuan/react-native-assets-loader#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "lru-cache": "^6.0.0"
+  },
+  "files": [
+    "src"
+  ]
+
+}
