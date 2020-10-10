@@ -24,7 +24,10 @@
     "lru-cache": "^6.0.0"
   },
   "files": [
-    "src"
+    "src",
+    "android",
+    "ios",
+    "example"
   ]
 
 }
