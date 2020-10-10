@@ -17,20 +17,18 @@ const LRU = require('lru-cache'), options = {
   length: function(n, key) {
     return n * 2 + key.length;
   },
-  dispose: function(key, n) {
-    n.close();
-  },
   maxAge: 1000 * 60 * 60 * 24,
 }, cache = new LRU(options);
 
 export default class AssetsSourceLoader {
 
-  initLoader() {
+
+  initLoader(debugMode = false) {
     AssetSourceResolver.prototype.defaultAsset = _.wrap(
       AssetSourceResolver.prototype.defaultAsset,
       function(func, ...args) {
         /**开发调试的时候走的是这个方法*/
-        if (this.isLoadedFromServer()) {
+        if (this.isLoadedFromServer() && !debugMode) {
           return this.assetServerURL();
         }
 
@@ -64,6 +62,7 @@ export default class AssetsSourceLoader {
            * 如果cache存在就直接读取对应的资源，如果不存在就去Native获取bridge读取存在情况
            * 如果都不存在的话就去读取网络的资源 并且缓存到文件中
            */
+          console.log(`AssetsSourceLoader=${drawableFileName}=cacheExitEnum1==${cache.get(drawableFileName)}`);
           if (cacheExitEnum) {
             if (cacheExitEnum === 1) {
               return this.resourceIdentifierWithoutScale();
@@ -71,14 +70,17 @@ export default class AssetsSourceLoader {
               return this.fromSource('file://' + assetsFileDir + '/' + drawableFileName);
             }
           } else {
+            const resource = this.resourceIdentifierWithoutScale();
             const drawableExit = AssetsLoader.assetsBundleExits(resource.uri);
             if (drawableExit) {
               cache.set(drawableFileName, 1);
-              return this.resourceIdentifierWithoutScale();
+              return resource;
             }
             const fileExits = AssetsLoader.assetsFileExist(assetsFileDir + '/' + drawableFileName);
             if (fileExits) {
               cache.set(drawableFileName, 10);
+              console.log(`AssetsSourceLoader=${drawableFileName}=cacheExitEnum2==${cache.has(drawableFileName)}`);
+              console.log(`AssetsSourceLoader=${drawableFileName}=cacheExitEnum2==${cache.get(drawableFileName)}`);
               return this.fromSource('file://' + assetsFileDir + '/' + drawableFileName);
             }
             const url = this.fromSource(
