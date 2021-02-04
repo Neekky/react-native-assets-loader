@@ -31,7 +31,7 @@
     "!ios/build",
     "example",
     "dist",
-    "react-native-assets-loader.podspec",
+    "react-native-assets-loader.podspec"
   ]
 
 }
