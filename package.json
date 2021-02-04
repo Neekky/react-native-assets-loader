@@ -1,6 +1,6 @@
 {
   "name": "react-native-assets-loader",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "react-native-assets-loader",
   "main": "src/index",
   "scripts": {},
@@ -26,8 +26,12 @@
   "files": [
     "src",
     "android",
+    "!android/build",
     "ios",
-    "example"
+    "!ios/build",
+    "example",
+    "dist",
+    "react-native-assets-loader.podspec",
   ]
 
 }
